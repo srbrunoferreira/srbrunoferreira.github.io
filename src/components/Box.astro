@@ -1,0 +1,13 @@
+---
+const { className = [], hasBg = true } = Astro.props
+---
+
+<div
+  class:list={[
+    'p-5 rounded-lg',
+    hasBg && 'bg-white border border-black/10',
+    ...className
+  ]}
+>
+  <slot />
+</div>

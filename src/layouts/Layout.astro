@@ -1,22 +1,55 @@
+---
+import { SEO } from 'astro-seo'
+import './src/styles/global.css'
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+    <SEO
+      title="Bruno Ferreira - Software Engineer | AI, Full-Stack & DevOps"
+      charset="UTF-8"
+      description="Bruno Ferreira is a software engineer specializing in AI-driven applications, full-stack development, and cloud infrastructure. With 5+ years of experience, he builds scalable, high-performance solutions."
+      canonical="https://brunoferreira.github.io"
+      openGraph={{
+        basic: {
+          title:
+            'Bruno Ferreira - Software Engineer | AI, Full-Stack, Python, LangChain & DevOps',
+          type: 'profile',
+          image:
+            'https://media.licdn.com/dms/image/v2/D4D03AQEqftfaeSQy9Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1732144423560?e=1746662400&v=beta&t=GjWmDuG1zmHhTImVm-U0aq1TeJqLHQVDs72BtRPQjy0',
+          url: 'https://linkedin.com/in/brunoferreiradc'
+        },
+        optional: {
+          description:
+            'Software engineer specializing in AI, full-stack development, and DevOps with experience in cloud infrastructure and microservices.',
+          siteName: "Bruno Ferreira's Portfolio",
+          locale: 'en_US'
+        },
+        article: {
+          authors: ['Bruno Ferreira'],
+          section: 'Technology',
+          tags: [
+            'Software Engineer',
+            'AI',
+            'Full Stack Developer',
+            'DevOps',
+            'Cloud Computing',
+            'PHP',
+            'LangChain',
+            'LangGraph',
+            'LLM',
+            'Python'
+          ]
+        }
+      }}
+    />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body class="w-screen bg-black/5">
+    <slot />
+  </body>
+</html>
