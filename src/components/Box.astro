@@ -1,13 +1,15 @@
 ---
-const { className = [], hasBg = true } = Astro.props
+import cn from 'classnames'
+const { className = [], hasBg = true, btnOnHover = false } = Astro.props
 ---
 
 <div
-  class:list={[
-    'p-5 rounded-lg',
-    hasBg && 'bg-white border border-black/10',
-    ...className
-  ]}
+  class={cn(
+      'p-5 rounded-xl',
+      hasBg && 'bg-white',
+      btnOnHover ? 'hover:bg-white/95 text-rblue/95' : '',
+      ...className
+    )}
 >
   <slot />
 </div>

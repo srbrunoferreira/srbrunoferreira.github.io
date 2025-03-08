@@ -1,36 +1,40 @@
 ---
 import { Icon } from 'astro-icon/components'
 import Box from './Box.astro'
+import Button from './Button.astro'
 import MyMarquee from './MyMarquee'
 
 const LINKS = [
   {
-    link: 'https://www.linkedin.com/in/brunoferreiradc',
-    icon: 'mdi:linkedin',
-    alt: 'LinkedIn Profile'
+    link: 'https://calendar.app.google/CheQuqKjsSRLhQMGA',
+    icon: 'mdi:calendar-blank',
+    alt: 'Schedule Meeting',
+    label: 'Meeting',
+  },
+  {
+    link: 'https://wa.me/5581989163234',
+    icon: 'mdi:whatsapp',
+    alt: 'WhatsApp Chat',
+    label: 'WhatsApp',
+  },
+  {
+    link: 'mailto:srbrunoferreira@outlook.com',
+    icon: 'mdi:email-outline',
+    alt: 'Email Me',
+    label: 'Email',
   },
   {
     link: 'https://github.com/srbrunoferreira',
     icon: 'mdi:github',
-    alt: 'GitHub Profile'
-  },
-  {
-    link: 'mailto:srbrunoferreira@outlook.com',
-    icon: 'mdi:at',
-    label: 'Email Me',
-    alt: 'Email Address'
-  },
+    alt: 'GitHub Profile',
+    label: ' GitHub',
+  }
   // {
   // link: '/BrunoFerreira_SoftwareEngineer_Resume.pdf',
   // icon: 'mdi:file-download',
   // label: 'Download CV'
   // },
-  {
-    link: 'https://wa.me/5581989163234',
-    icon: 'mdi:whatsapp',
-    label: 'Text Me',
-    alt: 'WhatsApp Chat'
-  }
+
 ]
 
 const SKILLS = [
@@ -81,16 +85,16 @@ const PROFILE_PINS = [
     icon: 'mdi:location'
   },
   {
-    label: 'Portuguese & English',
+    label: 'Computer Science',
+    icon: 'mdi:account-school'
+  },
+  {
+    label: 'English & Portuguese',
     icon: 'mdi:language'
   },
   {
     label: 'GMT-3',
     icon: 'mdi:clock-time-two'
-  },
-  {
-    label: 'Computer Science',
-    icon: 'mdi:account-school'
   },
   {
     label: 'Uninter',
@@ -100,29 +104,37 @@ const PROFILE_PINS = [
 ---
 
 <div class="mx-auto max-w-[512px] flex flex-col gap-5 p-5 pb-20">
-  <Box className={['w-full']} hasBg={false}>
-    <h1
-      class="text-5xl sm:text-6xl font-bold leading-none text-left w-fit mx-auto flex flex-col"
-    >
-      Bruno Ferreira
-      <br />
-      <span class="text-lg font-medium"> Software Developer </span>
-    </h1>
-  </Box>
+    <Box className={['w-full flex flex-col gap-2.5']} >
+      <h1
+        class="text-4xl text-rblue font-bold text-left w-fit mx-auto flex flex-col"
+      >
+        Bruno Ferreira
+        <!-- <br /> -->
+        <!-- <span class="text-lg font-medium"> Software Developer </span> -->
+      </h1>
 
-  <Box className={['w-full !p-0 !pb-5']} hasBg={false}>
-    <h2 class="text-center mb-5 text-xl font-semibold hidden">Skills</h2>
+      <MyMarquee client:only="react">
+        {
+          SKILLS.map((skill) => (
+            <div class="inline mx-1.5 text-xs text-rblue/60 font-medium">
+              {skill}
+            </div>
+          ))
+        }
+      </MyMarquee>
+    </Box>
 
+  <!-- <Box className={['w-full py-1 !px-0.5 !h-[38px] flex items-center justify-center']} >
     <MyMarquee client:only="react">
       {
         SKILLS.map((skill) => (
-          <div class="h-fit inline mx-1.5 bg-white p-2 rounded-lg text-xs text-black/60">
+          <div class="inline mx-1.5 text-xs text-black/60">
             {skill}
           </div>
         ))
       }
     </MyMarquee>
-  </Box>
+  </Box> -->
 
   <div class="w-full flex flex-col sm:flex-row gap-5">
     <div class="w-full">
@@ -132,16 +144,20 @@ const PROFILE_PINS = [
         ]}
       >
         <div class="flex flex-col justify-between items-center gap-5">
-          <div
-            class="max-w-[100px] max-h-[100px] size-full rounded-full overflow-hidden"
+          <Box
+            className={["!p-0 max-w-[120px] max-h-[120px] size-full rounded-full overflow-hidden"]}
           >
             <img src="/bruno-ferreira.webp" title="Bruno Ferreira, Software Developer" alt="Profile of Bruno Ferreira - Software Engineer | AI, Full-Stack, Python, PHP, JavaScript, LangChain & DevOps"  width="150" height="150"/>
-          </div>
+          </Box>
+
+          <p class="text-center text-sm text-rblue/60">
+            <span class="font-semibold">Software Developer</span><br><span class="text-xs">@Link Nacional @PoolTile</span>
+          </p>
 
           <div class="flex flex-wrap justify-center gap-1.5">
             {
               PROFILE_PINS.map((pin) => (
-                <div class="flex items-center justify-center gap-1 text-sm text-black/60 rounded-lg w-fit px-2 py-1 border border-black/5">
+                <div class="flex items-center justify-center gap-1 text-sm text-rblue/60 rounded-lg w-fit px-2 py-1 border border-black/5">
                   <Icon name={pin.icon} width={14} height={14} />
                   {pin.label}
                 </div>
@@ -150,26 +166,33 @@ const PROFILE_PINS = [
           </div>
         </div>
 
-        <div class="w-full">
-          <a
-            class="flex items-center justify-center gap-2 border border-black/5 w-full p-2.5 rounded-lg"
+        <div class="w-full flex flex-col gap-2">
+          <Button
+            text={'See LinkedIn'}
+            iconName="mdi:linkedin"
+            href="https://www.linkedin.com/in/brunoferreiradc/"
+          />
+
+          <Button
+            text={'Download Resume'}
+            iconName="mdi:download"
             href="/BrunoFerreira_SoftwareEngineer_Resume.pdf"
-            target="_blank"
-          >
-            <Icon name="mdi:file-download" width={14} height={14} />
-            <span>Download CV</span>
-          </a>
+            hasBg={false}
+          />
         </div>
       </Box>
     </div>
+
+
 
     <div class="flex-1 flex flex-wrap gap-5">
       {
         LINKS.map((link) => (
           <Box
             className={[
-              'flex-1 flex items-center justify-center hover:bg-black/5 !p-0 hover:scale-105 transition-transform duration-75 linear'
+              'flex-1 flex items-center justify-center text-rblue/60 !p-0 min-w-[100px] min-h-[100px]'
             ]}
+            btnOnHover
           >
             <a
               class="size-full p-5 flex flex-col justify-center items-center"
@@ -179,12 +202,12 @@ const PROFILE_PINS = [
             >
               <Icon
                 name={link.icon}
-                class="text-black/70 min-w-[76px]"
-                width={32}
-                height={32}
+                class="size-[24px]"
+                width={24}
+                height={24}
               />
               {link.label && (
-                <p class="mt-2 text-xs text-black/60 text-center">
+                <p class="mt-2 text-xs font-medium text-center">
                   {link.label}
                 </p>
               )}

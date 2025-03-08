@@ -1,0 +1,19 @@
+---
+import { Icon } from "astro-icon/components"
+
+const {text, iconName, href, hasBg=true} = Astro.props
+---
+
+<div class="w-full">
+  <a
+    class:list={[
+      "text-sm flex items-center justify-center gap-2 font-semibold w-full p-4 rounded-lg",
+      hasBg ? 'bg-rblue text-white/90 hover:bg-rblue/90' : 'bg-rblue/5 text-rblue/90 hover:bg-rblue/10'
+    ]}
+    href={href}
+    target="_blank"
+  >
+    <Icon name={iconName} width={21} height={21} />
+    <span>{text}</span>
+  </a>
+</div>

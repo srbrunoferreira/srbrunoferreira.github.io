@@ -6,27 +6,29 @@ import '../styles/global.css'
 <!doctype html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
 
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
     <SEO
-      title="Bruno Ferreira - Software Engineer | AI, Full-Stack, Python, PHP, JavaScript, LangChain & DevOps"
+      title="Bruno Ferreira - Software Developer | Python, LangChain, LangGraph, LLM, PHP, JavaScript, TypeScript, React, Vue"
       charset="UTF-8"
-      description="Bruno Ferreira is a software engineer specializing in AI-driven applications, full-stack development, and cloud infrastructure. With 5+ years of experience, he builds scalable, high-performance solutions."
+      description="I am Software Developer specializing in AI-driven applications, full-stack development, and cloud infrastructure. With 5+ years of experience, I builds scalable, high-performance solutions."
       canonical="https://srbrunoferreira.github.io"
       openGraph={{
         basic: {
           title:
-            'Bruno Ferreira - Software Engineer | AI, Full-Stack, Python, PHP, JavaScript, LangChain & DevOps',
+            'Bruno Ferreira - Software Developer | Python, LangChain, LangGraph, LLM, PHP, JavaScript, TypeScript, React, Vue',
           type: 'profile',
           image:
-            'https://media.licdn.com/dms/image/v2/D4D03AQEqftfaeSQy9Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1732144423560?e=1746662400&v=beta&t=GjWmDuG1zmHhTImVm-U0aq1TeJqLHQVDs72BtRPQjy0',
+            'https://srbrunoferreira.github.io/bruno-ferreira-software-developer.webp',
           url: 'https://linkedin.com/in/brunoferreiradc'
         },
         optional: {
           description:
-            'Software engineer specializing in AI, full-stack development, and DevOps with experience in cloud infrastructure and microservices.',
-          siteName: "Bruno Ferreira's Portfolio",
+            'I am Software Developer specializing in AI-driven applications, full-stack development, and cloud infrastructure. With 5+ years of experience, I builds scalable, high-performance solutions.',
+          siteName: "Bruno Ferreira - Software Developer",
           locale: 'en_US'
         },
         article: {
@@ -42,14 +44,20 @@ import '../styles/global.css'
             'LangChain',
             'LangGraph',
             'LLM',
-            'Python'
+            'Python',
+            'AWS'
           ]
         }
       }}
     />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
     <meta name="generator" content={Astro.generator} />
   </head>
-  <body class="w-screen bg-black/5">
+  <body class="w-screen bg-rblue antialiased">
     <slot />
   </body>
 </html>

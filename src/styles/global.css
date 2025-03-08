@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  --color-royal-blue: #002366;
+  --color-rblue: #002366;
+  --font-sans: 'Inter', 'sans-serif';
 }
